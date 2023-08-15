@@ -20,6 +20,13 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud'
+    organization: 'dhaneeshdharun'
+    scannerMode: 'MSBuild'
+    projectKey: '497d7d899461a546cb64f450f9206926b659082a'
+    projectName: 'dhaneeshdharun'
 - task: CopyFiles@2
   inputs:
 #    Contents: '**/.war'
