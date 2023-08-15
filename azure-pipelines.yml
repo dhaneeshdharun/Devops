@@ -27,6 +27,12 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: '497d7d899461a546cb64f450f9206926b659082a'
     projectName: 'dhaneeshdharun'
+- task: SonarCloudAnalyze@1
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: CopyFiles@2
   inputs:
 #    Contents: '**/.war'
