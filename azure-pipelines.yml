@@ -36,12 +36,12 @@ steps:
     rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(dhaneesh).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/dhaneesh.zip' #we can give build id or our name or any in zipformat
     replaceExistingArchive: true
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'warfile'
     publishLocation: 'Container'
-    notifyUsers: 'dhaneeshjadhav@gmail.com'
+    notifyUsers: 'dhaneeshjaga2000@gmail.com'
     instructions: 'success its done'
