@@ -43,3 +43,5 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'warfile'
     publishLocation: 'Container'
+    notifyUsers: 'dhaneeshjadahv@gmail.com'
+    instructions: 'success its done'
