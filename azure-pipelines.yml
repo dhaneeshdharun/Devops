@@ -27,15 +27,15 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: '497d7d899461a546cb64f450f9206926b659082a'
     projectName: 'dhaneeshdharun'
-- task: CopyFiles@2
-  inputs:
+#- task: CopyFiles@2
+ # inputs:
 #    Contents: '**/.war'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'warfile'
-    publishLocation: 'Container'
+ #   TargetFolder: '$(build.artifactstagingdirectory)'
+#- task: PublishBuildArtifacts@1
+#  inputs:
+#    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#    ArtifactName: 'warfile'
+#    publishLocation: 'Container'
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
