@@ -44,4 +44,4 @@ steps:
     ArtifactName: 'warfile'
     publishLocation: 'Container'
     notifyUsers: 'dhaneeshjaga2000@gmail.com'
-    instructions: 'success its done'
+    instructions: 'success its dones'
