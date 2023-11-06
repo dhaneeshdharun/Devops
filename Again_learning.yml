@@ -30,9 +30,7 @@ steps:
     organization: 'dhaneeshdharun'
     scannerMode: 'MSBuild'
     projectKey: 'dhaneeshdharun'
-- task: SonarQubeAnalyze@5
-  inputs:
-    jdkversion: 'JAVA_HOME_11_X64'
+
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(agent.builddirectory)'
@@ -43,6 +41,9 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Again'
     publishLocation: 'Container'
+- task: SonarQubeAnalyze@5
+  inputs:
+    jdkversion: 'JAVA_HOME_11_X64'
 - task: Bash@3
   inputs:
     targetType: 'inline'
