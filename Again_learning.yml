@@ -30,9 +30,9 @@ steps:
     organization: 'dhaneeshdharun'
     scannerMode: 'MSBuild'
     projectKey: 'dhaneeshdharun'
-- task: SonarCloudAnalyze@1
+- task: SonarQubeAnalyze@5
   inputs:
-    jdkversion: 'JAVA_HOME_17_X64'
+    jdkversion: 'JAVA_HOME_11_X64'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(agent.builddirectory)'
