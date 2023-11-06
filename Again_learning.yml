@@ -20,6 +20,10 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean test install '
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'echo " Maven part completed "'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(agent.builddirectory)'
@@ -30,3 +34,7 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Again'
     publishLocation: 'Container'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'echo " Artifact published in to system default working directory"'
