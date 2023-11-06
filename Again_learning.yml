@@ -30,20 +30,24 @@ steps:
     organization: 'dhaneeshdharun'
     scannerMode: 'MSBuild'
     projectKey: 'dhaneeshdharun'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud'
+    organization: 'dhaneeshdharun'
+    scannerMode: 'Other'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(agent.builddirectory)'
     Contents: '**/webapp.war'
     TargetFolder: '$(build.artifactstagingdirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Again'
     publishLocation: 'Container'
-- task: SonarQubeAnalyze@5
-  inputs:
-    jdkversion: 'JAVA_HOME_11_X64'
+
 - task: Bash@3
   inputs:
     targetType: 'inline'
