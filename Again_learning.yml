@@ -35,6 +35,9 @@ steps:
     SonarCloud: 'sonarcloud'
     organization: 'dhaneeshdharun'
     scannerMode: 'Other'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: CopyFiles@2
   inputs:
