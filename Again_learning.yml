@@ -30,6 +30,9 @@ steps:
     organization: 'dhaneeshdharun'
     scannerMode: 'MSBuild'
     projectKey: 'dhaneeshdharun'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(agent.builddirectory)'
