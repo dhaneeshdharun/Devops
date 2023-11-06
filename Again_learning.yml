@@ -25,3 +25,8 @@ steps:
     SourceFolder: '$(agent.builddirectory)'
     Contents: '**/webapp.war'
     TargetFolder: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'Again'
+    publishLocation: 'Container'
