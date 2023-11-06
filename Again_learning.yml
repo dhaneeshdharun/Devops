@@ -24,6 +24,12 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'echo " Maven part completed "'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud'
+    organization: 'dhaneeshdharun'
+    scannerMode: 'MSBuild'
+    projectKey: 'dhaneeshdharun'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(agent.builddirectory)'
