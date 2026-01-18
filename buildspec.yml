@@ -20,7 +20,7 @@ phases:
       - echo Before the build starts need to login to AWS ECR
       -  aws ecr get-login-password --region $aws_region | docker login --username AWS --password-stdin $account_id.dkr.ecr.$aws_region.amazonaws.com
       - echo add the settings.xml for maven libraries from code artifact repo
-      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain dhaneesh --domain-owner $account_id --region $aws_region --query authorizationToken --output text`
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain code-artifact-domain --domain-owner $account_id --region $aws_region --query authorizationToken --output text`
   build:
     commands:
       - echo Building the webapplication...
