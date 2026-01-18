@@ -7,7 +7,7 @@ WORKDIR /usr/local/tomcat
 # remove the default web apps inside the webapps directory
 RUN rm -rf webapps/*
 # copy my website into the webapp directory
-COPY website.html  webapps/website.html
-COPY target/*.war  webapps/ROOT.war
+COPY website.html  webapps/ROOT/website.html
+COPY target/*.war  webapps/webapp.war
 EXPOSE 8080
 CMD [ "catalina.sh", "run" ]
