@@ -1,0 +1,39 @@
+version: 2.0
+env:
+  variables:
+    aws_region: ap-northeast-1
+    ecr_repository: terraform/ecr-repo 
+    images: dockerimage
+    account_id: 978489150432
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+    commands:
+      - echo Installing the required dependencies...
+      - installing java and maven
+      - java -version
+      - mvn -version
+  pre_build:
+    commands:
+      - echo Pre-build started on `date`
+      - echo Before the build starts need to login to AWS ECR
+      -  aws ecr get-login-password --region $aws_region | docker login --username AWS --password-stdin $account_id.dkr.ecr.$aws_region.amazonaws.com
+      - echo add the settings.xml for maven libraries from code artifact repo
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain dhaneesh --domain-owner $account_id --region $aws_region --query authorizationToken --output text`
+  build:
+    commands:
+      - echo Building the webapplication...
+      - mvn clean package -s settings.xml
+      - echo building the docker image...
+      - docker build -t $images .
+      - docker tag $images:latest $account_id.dkr.ecr.$aws_region.amazonaws.com/$ecr_repository:latest
+  post_build:
+    commands:
+      - echo post_build started on `date`
+      - echo Pushing the docker image to ECR repository...
+      - docker push $account_id.dkr.ecr.$aws_region.amazonaws.com/$ecr_repository:latest
+artifacts:
+  files:
+    - target/*.war
+  discard-paths: yes

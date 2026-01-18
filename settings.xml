@@ -1,0 +1,31 @@
+<settings>
+<servers>
+  <server>
+    <id>code-artifact-domain-code-artifact-repo</id>
+    <username>aws</username>
+    <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+  </server>
+</servers>
+<profiles>
+  <profile>
+    <id>code-artifact-domain-code-artifact-repo</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+    <repositories>
+      <repository>
+        <id>code-artifact-domain-code-artifact-repo</id>
+        <url>https://code-artifact-domain-978489150432.d.codeartifact.ap-northeast-1.amazonaws.com/maven/code-artifact-repo/</url>
+      </repository>
+    </repositories>
+  </profile>
+</profiles>
+<mirrors>
+  <mirror>
+    <id>code-artifact-domain-code-artifact-repo</id>
+    <name>code-artifact-domain-code-artifact-repo</name>
+    <url>https://code-artifact-domain-978489150432.d.codeartifact.ap-northeast-1.amazonaws.com/maven/code-artifact-repo/</url>
+    <mirrorOf>*</mirrorOf>
+  </mirror>
+</mirrors>
+</settings>
