@@ -1,0 +1,11 @@
+version: 1
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: arn:aws:ecs:ap-northeast-1:978489150432:task-definition/ecs-task:1
+        LoadBalancerInfo:
+          ContainerName: terraform-ecs-webapp-container
+          ContainerPort: 8080
+        ServiceRoleArn: arn:aws:iam::978489150432:role/CodeDeployECSServiceRole
+          
